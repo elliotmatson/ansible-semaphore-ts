@@ -1,0 +1,24 @@
+name: TS Update
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged && contains(github.event.pull_request.title, 'Update ghcr.io/tailscale/tailscale Docker tag')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - id: get-version
+      run: |
+        version=$(echo ${{github.event.pull_request.title}} | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+')
+        echo "version=$version" >> $GITHUB_OUTPUT
+    - uses: actions/checkout@v3
+    - uses: ncipollo/release-action@v1
+      with:
+        generateReleaseNotes: true
+        tag: ${{steps.get-version.outputs.version}}
+        token: ${{secrets.RELEASE_TOKEN}}

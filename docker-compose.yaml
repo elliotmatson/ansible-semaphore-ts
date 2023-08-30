@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  tailscale:
+    image: ghcr.io/elliotmatson/ansible-semaphore-ts:latest
+    environment:
+      TAILSCALE_AUTH_KEY: ${TAILSCALE_AUTH_KEY:?err}
+      TAILSCALE_HOSTNAME: semaphore
