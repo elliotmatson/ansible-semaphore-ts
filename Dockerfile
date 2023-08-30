@@ -1,4 +1,4 @@
-FROM semaphoreui/semaphore:v2.9.0
+FROM semaphoreui/semaphore:v2.9.2
 COPY start.sh /usr/bin/start.sh
 
 USER root
