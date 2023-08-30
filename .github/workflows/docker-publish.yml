@@ -23,7 +23,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      security-events: write
       contents: read
       packages: write
       # This is used to complete the identity challenge
