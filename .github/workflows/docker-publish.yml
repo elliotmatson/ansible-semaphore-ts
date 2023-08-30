@@ -10,6 +10,7 @@ on:
     types: [ released ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 env:
   # Use docker.io for Docker Hub if empty
