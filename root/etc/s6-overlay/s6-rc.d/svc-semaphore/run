@@ -1,0 +1,2 @@
+#!/command/with-contenv bash
+exec s6-setuidgid semaphore /usr/local/bin/semaphore-wrapper /usr/local/bin/semaphore server --config /etc/semaphore/config.json

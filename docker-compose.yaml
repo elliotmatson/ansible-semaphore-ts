@@ -1,7 +1,21 @@
 version: "3.9"
 services:
-  tailscale:
+  semaphore:
     image: ghcr.io/elliotmatson/ansible-semaphore-ts:latest
     environment:
+      SEMAPHORE_DB_DIALECT: bolt
+      SEMAPHORE_ACCESS_KEY_ENCRYPTION: changemeplease
+      TAILSCALE_STATE_DIR: /var/lib/tailscale
       TAILSCALE_AUTH_KEY: ${TAILSCALE_AUTH_KEY:?err}
-      TAILSCALE_HOSTNAME: semaphore
+      TAILSCALE_HOSTNAME: test-service
+      TAILSCALE_SSH: true
+      #TAILSCALE_FUNNEL:
+    volumes:
+      - config:/etc/semaphore # config.json location
+      - db:/var/lib/semaphore # database.boltdb location (Not required if using mysql or postgres)
+      - tailscale-state:/var/lib/tailscale
+
+volumes:
+  db:
+  config:
+  tailscale-state:
