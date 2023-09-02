@@ -1,4 +1,4 @@
-FROM semaphoreui/semaphore:v2.9.2
+FROM semaphoreui/semaphore:v2.9.1
 ARG S6_OVERLAY_VERSION=3.1.5.0
 ARG TAILSCALE_VERSION=1.48.1
 
