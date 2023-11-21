@@ -25,10 +25,6 @@ echo '[i] running `tailscale serve https:443 / http://localhost:3000`'
 tailscale serve https:443 / http://localhost:3000
 
 # configure funnel
-if [ -v TAILSCALE_FUNNEL ]; then
-    echo '[i] running `tailscale funnel 443 on`'
-    tailscale funnel 443 on
-fi
 if [ $TAILSCALE_FUNNEL = "true" ]; then
     echo '[!] TAILSCALE_FUNNEL is enabled!'
     echo '[i] running `tailscale funnel -bg http://localhost:3000`'
