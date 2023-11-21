@@ -36,7 +36,7 @@ else
 fi
 
 # configure auto update
-if [ -v TAILSCALE_AUTO_UPDATE ]; then
+if [ $TAILSCALE_AUTO_UPDATE = "true" ]; then
     echo '[i] running `tailscale set --auto-update`'
     tailscale set --auto-update
 fi
