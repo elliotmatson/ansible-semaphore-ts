@@ -29,3 +29,12 @@ if [ -v TAILSCALE_FUNNEL ]; then
     echo '[i] running `tailscale funnel 443 on`'
     tailscale funnel 443 on
 fi
+if [ $TAILSCALE_FUNNEL = "true" ]; then
+    echo '[!] TAILSCALE_FUNNEL is enabled!'
+    echo '[i] running `tailscale funnel -bg http://localhost:3000`'
+    tailscale funnel -bg http://localhost:3000
+else
+    echo '[!] TAILSCALE_FUNNEL is disabled!'
+    echo '[i] running `http://localhost:3000`'
+    tailscale serve -bg http://localhost:3000
+fi
