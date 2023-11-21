@@ -20,12 +20,8 @@ fi
 echo '[i] running `tailscale up '"${FLAGS}"'`'
 tailscale up $FLAGS
 
-# configure serve
-echo '[i] running `tailscale serve https:443 / http://localhost:3000`'
-tailscale serve https:443 / http://localhost:3000
-
-# configure funnel
-if [ $TAILSCALE_FUNNEL = "true" ]; then
+# configure funnel and serve
+if [ "$TAILSCALE_FUNNEL" = "true" ]; then
     echo '[!] TAILSCALE_FUNNEL is enabled!'
     echo '[i] running `tailscale funnel -bg http://localhost:3000`'
     tailscale funnel -bg http://localhost:3000
@@ -36,7 +32,7 @@ else
 fi
 
 # configure auto update
-if [ $TAILSCALE_AUTO_UPDATE = "true" ]; then
+if [ "$TAILSCALE_AUTO_UPDATE" = "true" ]; then
     echo '[i] running `tailscale set --auto-update`'
     tailscale set --auto-update
 fi
