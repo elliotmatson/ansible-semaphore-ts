@@ -9,7 +9,8 @@ services:
       TAILSCALE_AUTH_KEY: ${TAILSCALE_AUTH_KEY:?err}
       TAILSCALE_HOSTNAME: test-service
       TAILSCALE_SSH: true
-      #TAILSCALE_FUNNEL:
+      #TAILSCALE_FUNNEL: true
+      #TAILSCALE_AUTO_UPDATE: true
     volumes:
       - config:/etc/semaphore # config.json location
       - db:/var/lib/semaphore # database.boltdb location (Not required if using mysql or postgres)

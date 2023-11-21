@@ -38,3 +38,9 @@ else
     echo '[i] running `http://localhost:3000`'
     tailscale serve -bg http://localhost:3000
 fi
+
+# configure auto update
+if [ -v TAILSCALE_AUTO_UPDATE ]; then
+    echo '[i] running `tailscale set --auto-update`'
+    tailscale set --auto-update
+fi
