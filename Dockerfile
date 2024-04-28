@@ -1,4 +1,4 @@
-FROM semaphoreui/semaphore:v2.9.70@sha256:60cf67c03e71bd91286d12e5adf5cc9b4180e3e1e59f9b8fec0cede6a5f36dee
+FROM semaphoreui/semaphore:v2.9.75@sha256:aa8e6ab27e352fb50768e349db91786e8702b4368a2f881ecf0834151d6c48b7
 ARG S6_OVERLAY_VERSION=3.1.5.0
 ARG TAILSCALE_VERSION=1.54.0
 
